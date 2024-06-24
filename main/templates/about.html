@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block content %}
+<section id="about">
+    <p class="section__text__p1">Get to Know Me</p>
+    <h2 class="title">About</h2>
+    <div class="section-container">
+        <div class="section__pic-container">
+            <img src="{% static 'images/about-pic.png' %}" alt="About Picture">
+        </div>
+        <div class="about-details-container">
+            <div class="about-containers">
+                <div class="details-container">
+                    <img src="{% static 'images/experience.png' %}" alt="Experience Icon" class="icon">
+                    <h3>Experience</h3>
+                    {% for experience in experiences %}
+                    <p>{{ experience.title }}</p>
+                    <p>{{ experience.duration }}</p>
+                    {% endfor %}
+                </div>
+                <div class="details-container">
+                    <img src="{% static 'images/education.png' %}" alt="Education Icon" class="icon">
+                    <h3>Education</h3>
+                    {% for edu in education %}
+                    <p>{{ edu.degree }}</p>
+                    <p>{{ edu.year }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="text-container">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus malesuada, est a feugiat
+                    pellentesque, augue erat maximus felis, sit amet laoreet nulla mi a ex. Nulla facilisi. Nulla
+                    facilisi. Donec eu est a ligula tempor dapibus. Pellentesque habitant morbi tristique senectus
+                    et netus et malesuada fames ac turpis egestas. Pellentesque tempor leo vitae tortor tempor, vel
+                    molestie metus lobortis. Cras ut felis nec purus tristique pellentesque a a augue. Cras aliquam
+                    est nec tortor aliquet faucibus.
+                </p>
+            </div>
+        </div>
+    </div>
+    <img
+    src="{%static 'images/arrow.png'%}"
+    alt="Arrow icon"
+    class="icon arrow"
+    onclick="location.href='{% url 'projects'%}'"/>
+</section>
+<section id="skills">
+    <p class="section__text__p1">Explore My</p>
+    <h2 class="title">Skills</h2>
+    <div class="skills-container">
+        {% for skill in skills %}
+        <div class="skill">
+            <h3>{{ skill.name }}</h3>
+            <p>{{ skill.expertise_level }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <img
+    src="{%static 'images/arrow.png'%}"
+    alt="Arrow icon"
+    class="icon arrow"
+    onclick="location.href='{% url 'about'%}'"/>
+</section>
+{% endblock %}

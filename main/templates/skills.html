@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{%load static%}
+{% block skills_content %}
+<div class="skills-section">
+    <p>Explore My</p>
+    <h2>Skills</h2>
+    <div class="skills-content">
+        {% for skill in skills %}
+            <div class="skill">
+                <h3>{{ skill.name }}</h3>
+                <p>{{ skill.level }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <i class='bx bx-chevrons-down' alt='Arrow icon'
+    class='icon arrow'
+    onclick='document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });'></i>
+</div>
+{% endblock %}
